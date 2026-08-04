@@ -26,3 +26,9 @@ lint.select = ['E', 'F', 'W', 'I']
 [tool.ruff.lint.isort]
 combine-as-imports = true
 known-third-party = ["modal"]
+
+[dependency-groups]
+dev = [
+    "jupyter>=1.1.1",
+    "modal[api-proxy-support]>=1.5.3",
+]

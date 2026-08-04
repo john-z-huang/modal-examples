@@ -4,14 +4,14 @@ app = modal.App("example-import-torch")
 
 
 torch_image = modal.Image.debian_slim().uv_pip_install(
-    "torch==2.7",
+    "torch",
     extra_index_url="https://download.pytorch.org/whl/cu128",
     force_build=True,  # trigger a build every time, just for demonstration purposes
     # remove if you're using this in production!
 )
 
 
-@app.function(gpu="B200", image=torch_image)
+@app.function(gpu="T4", image=torch_image)
 def torch() -> list[list[int]]:
     import math
 
